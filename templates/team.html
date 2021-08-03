@@ -1,0 +1,59 @@
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<title>Team | Careerqube </title>
+
+
+<!-- End Site Title
+================================================== -->
+
+	<!-- Begin Featured
+	================================================== -->
+	<section class="container">
+	<div class="section-title">
+		<h2><span>Team</span></h2>
+	</div>
+	<div class="card-columns listfeaturedtag">
+
+		<!-- begin post -->
+
+		{% for obj in team %}
+		<div class="card">
+			<div class="row">
+				<div class="col-md-5 wrapthumbnail">
+					<a href="{{ obj.get_absolute_url }}">
+						<div class="thumbnail" style="background-image: url( {{ obj.photo.url }} );">
+						</div>
+					</a>
+				</div>
+				<div class="col-md-7">
+					<div class="card-block">
+						
+						<h2 class="card-title"><a href="{{ obj.get_absolute_url }}">{{obj.name}}</a></h2>
+						<h4 class="card-text">{{ obj.about }}</h4>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+
+		{% endfor %}
+		
+	</div>
+	</section>
+	<!-- End Featured
+	================================================== -->
+
+	<!-- Begin List Posts
+	================================================== -->
+	
+
+	
+	<!-- End List Posts
+	================================================== -->
+
+	
+	{% endblock content %}

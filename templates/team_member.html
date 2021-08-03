@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<title>Team | Careerqube </title>
+
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+    <div class="row">
+        <div class="col-md-8 p-lg-5 mx-auto my-auto">
+            <div class="col-md-11">
+            <h1 class="display-4 font-weight-normal">{{ team_member.name }}</h1>
+            <p class="lead font-weight-normal">{{ team_member.about }}</p>
+            <a class="btn btn-outline-primary" href="#">Download CV</a>
+        </div>
+        </div>
+        <div class="col-md-4 mx-auto my-auto text-center">
+            
+            <a href="{{ team_member.get_absolute_url }}">
+                
+                <img src="{{ team_member.photo.url }}" class="rounded-circle z-depth-2" alt="Cinque Terre" width="200" height="200" data-holder-rendered="true"> 
+            </a>
+        
+    </div>
+</div>
+
+<div class="product-device shadow-sm d-none d-md-block">
+
+</div>
+<div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+</div>
+
+
+
+{% endblock content %}

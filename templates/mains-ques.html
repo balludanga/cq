@@ -1,0 +1,239 @@
+
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+{% load static %}
+{% load embed_video_tags %}
+<title>{{ post.title }}</title>
+
+<style>
+	.article-post img {
+		max-width: 100%;
+		object-fit: contain;
+		max-height:fit-content;
+		border-radius: 5%;
+	}
+  </style>
+
+
+<!-- Begin Article
+================================================== -->
+<div class="container">
+	<div class="row">
+
+		<!-- Begin Fixed Left Share -->
+		<div class="col-md-2 col-xs-12">
+			<div class="share">
+				<p>
+					Share
+				</p>
+				<ul>
+					<li>
+					<a target="_blank" href="http://twitter.com/share?url={{ page.get_absolute_url }}" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;">
+					<svg class="svgIcon-use" width="29" height="29" viewbox="0 0 29 29"><path d="M21.967 11.8c.018 5.93-4.607 11.18-11.177 11.18-2.172 0-4.25-.62-6.047-1.76l-.268.422-.038.5.186.013.168.012c.3.02.44.032.6.046 2.06-.026 3.95-.686 5.49-1.86l1.12-.85-1.4-.048c-1.57-.055-2.92-1.08-3.36-2.51l-.48.146-.05.5c.22.03.48.05.75.08.48-.02.87-.07 1.25-.15l2.33-.49-2.32-.49c-1.68-.35-2.91-1.83-2.91-3.55 0-.05 0-.01-.01.03l-.49-.1-.25.44c.63.36 1.35.57 2.07.58l1.7.04L7.4 13c-.978-.662-1.59-1.79-1.618-3.047a4.08 4.08 0 0 1 .524-1.8l-.825.07a12.188 12.188 0 0 0 8.81 4.515l.59.033-.06-.59v-.02c-.05-.43-.06-.63-.06-.87a3.617 3.617 0 0 1 6.27-2.45l.2.21.28-.06c1.01-.22 1.94-.59 2.73-1.09l-.75-.56c-.1.36-.04.89.12 1.36.23.68.58 1.13 1.17.85l-.21-.45-.42-.27c-.52.8-1.17 1.48-1.92 2L22 11l.016.28c.013.2.014.35 0 .52v.04zm.998.038c.018-.22.017-.417 0-.66l-.498.034.284.41a8.183 8.183 0 0 0 2.2-2.267l.97-1.48-1.6.755c.17-.08.3-.02.34.03a.914.914 0 0 1-.13-.292c-.1-.297-.13-.64-.1-.766l.36-1.254-1.1.695c-.69.438-1.51.764-2.41.963l.48.15a4.574 4.574 0 0 0-3.38-1.484 4.616 4.616 0 0 0-4.61 4.613c0 .29.02.51.08.984l.01.02.5-.06.03-.5c-3.17-.18-6.1-1.7-8.08-4.15l-.48-.56-.36.64c-.39.69-.62 1.48-.65 2.28.04 1.61.81 3.04 2.06 3.88l.3-.92c-.55-.02-1.11-.17-1.6-.45l-.59-.34-.14.67c-.02.08-.02.16 0 .24-.01 2.12 1.55 4.01 3.69 4.46l.1-.49-.1-.49c-.33.07-.67.12-1.03.14-.18-.02-.43-.05-.64-.07l-.76-.09.23.73c.57 1.84 2.29 3.14 4.28 3.21l-.28-.89a8.252 8.252 0 0 1-4.85 1.66c-.12-.01-.26-.02-.56-.05l-.17-.01-.18-.01L2.53 21l1.694 1.07a12.233 12.233 0 0 0 6.58 1.917c7.156 0 12.2-5.73 12.18-12.18l-.002.04z"></path></svg>
+					</a>
+					</li>
+					<li data-href="http://127.0.0.1:8000/post/{{post.post_id}}/">
+					<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F127.0.0.1%3A8000%2Fpost%2F1%2F&amp;src=sdkpreparse" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;">
+					<svg class="svgIcon-use" width="29" height="29" viewbox="0 0 29 29"><path d="M16.39 23.61v-5.808h1.846a.55.55 0 0 0 .546-.48l.36-2.797a.551.551 0 0 0-.547-.62H16.39V12.67c0-.67.12-.813.828-.813h1.474a.55.55 0 0 0 .55-.55V8.803a.55.55 0 0 0-.477-.545c-.436-.06-1.36-.116-2.22-.116-2.5 0-4.13 1.62-4.13 4.248v1.513H10.56a.551.551 0 0 0-.55.55v2.797c0 .304.248.55.55.55h1.855v5.76c-4.172-.96-7.215-4.7-7.215-9.1 0-5.17 4.17-9.36 9.31-9.36 5.14 0 9.31 4.19 9.31 9.36 0 4.48-3.155 8.27-7.43 9.15M14.51 4C8.76 4 4.1 8.684 4.1 14.46c0 5.162 3.75 9.523 8.778 10.32a.55.55 0 0 0 .637-.543v-6.985a.551.551 0 0 0-.55-.55H11.11v-1.697h1.855a.55.55 0 0 0 .55-.55v-2.063c0-2.02 1.136-3.148 3.03-3.148.567 0 1.156.027 1.597.06v1.453h-.924c-1.363 0-1.93.675-1.93 1.912v1.78c0 .3.247.55.55.55h2.132l-.218 1.69H15.84c-.305 0-.55.24-.55.55v7.02c0 .33.293.59.623.54 5.135-.7 9.007-5.11 9.007-10.36C24.92 8.68 20.26 4 14.51 4"></path></svg>
+					</a>
+					</li>
+					<li>
+						<a target="_blank" href="http://reddit.com/submit?url=www.careerqube.co.in/{{ post.get_absolute_url }}&title={{ post.title }}" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;">
+							
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M14.238 15.348c.085.084.085.221 0 .306-.465.462-1.194.687-2.231.687l-.008-.002-.008.002c-1.036 0-1.766-.225-2.231-.688-.085-.084-.085-.221 0-.305.084-.084.222-.084.307 0 .379.377 1.008.561 1.924.561l.008.002.008-.002c.915 0 1.544-.184 1.924-.561.085-.084.223-.084.307 0zm-3.44-2.418c0-.507-.414-.919-.922-.919-.509 0-.923.412-.923.919 0 .506.414.918.923.918.508.001.922-.411.922-.918zm13.202-.93c0 6.627-5.373 12-12 12s-12-5.373-12-12 5.373-12 12-12 12 5.373 12 12zm-5-.129c0-.851-.695-1.543-1.55-1.543-.417 0-.795.167-1.074.435-1.056-.695-2.485-1.137-4.066-1.194l.865-2.724 2.343.549-.003.034c0 .696.569 1.262 1.268 1.262.699 0 1.267-.566 1.267-1.262s-.568-1.262-1.267-1.262c-.537 0-.994.335-1.179.804l-2.525-.592c-.11-.027-.223.037-.257.145l-.965 3.038c-1.656.02-3.155.466-4.258 1.181-.277-.255-.644-.415-1.05-.415-.854.001-1.549.693-1.549 1.544 0 .566.311 1.056.768 1.325-.03.164-.05.331-.05.5 0 2.281 2.805 4.137 6.253 4.137s6.253-1.856 6.253-4.137c0-.16-.017-.317-.044-.472.486-.261.82-.766.82-1.353zm-4.872.141c-.509 0-.922.412-.922.919 0 .506.414.918.922.918s.922-.412.922-.918c0-.507-.413-.919-.922-.919z"/></svg>	
+						</a>
+					</li>
+					<li>
+						<a target="_blank" href="whatsapp://send?text={{ post.title }} www.careerqube.co.in/{{ post.get_absolute_url }}">
+							
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>	
+						</a>
+					</li>
+				</ul>
+				<div class="sep">
+				</div>
+				<p>
+					Views
+				</p>
+				<ul>
+					<li>
+					
+					{{ mains.views }}<br/>
+					<svg class="svgIcon-use" width="29" height="29" viewbox="0 0 29 29"><path d="M15 12c0 1.654-1.346 3-3 3s-3-1.346-3-3 1.346-3 3-3 3 1.346 3 3zm9-.449s-4.252 8.449-11.985 8.449c-7.18 0-12.015-8.449-12.015-8.449s4.446-7.551 12.015-7.551c7.694 0 11.985 7.551 11.985 7.551zm-7 .449c0-2.757-2.243-5-5-5s-5 2.243-5 5 2.243 5 5 5 5-2.243 5-5z"></path></svg>
+					
+					</li>
+				</ul>
+				<div class="sep">
+				</div>
+				
+			</div>
+		</div>
+		<!-- End Fixed Left Share -->
+		
+		<!-- Begin Post -->
+		<div class="col-md-8 col-md-offset-2 col-xs-12">
+			<div class="mainheading">
+
+				
+
+				<h1 class="posttitle">{{ mains.title }}</h1>
+
+			</div>
+
+			
+
+			<!-- Begin Post Content -->
+			
+
+			<!-- End Post Content -->
+
+			<!-- Begin Tags -->
+			
+			<div class="fb-comments" data-href="http://127.0.0.1:8000/{{post.get_absolute_url}}/" data-numposts="5" data-width="600"></div>
+		
+            <!-- End Tags -->
+            
+            <div class="graybg">
+                <div class="container">
+                    <div class="row listrecent listrelated">
+                        {% if post.previous_post %}
+                        <!-- begin post -->
+                        <div class="col-md-4">
+                            <div class="card">
+                                
+                                <div class="card-block">
+                                    {% for cat in post.previous_post.categories.all %}
+                                <a href="{{ cat.get_absolute_url }}">{{ cat }}</a>
+                                {% endfor %}
+                                    <h2 class="card-title"><a href="{{ post.previous_post.get_absolute_url }}">{{ post.previous_post.title }}</a></h2>
+                                    <div class="metafooter">
+                                        <div class="wrapfooter">
+                                            <span class="meta-footer-thumb">
+                                            <a href="author.html"><img class="author-thumb" src="{{ post.previous_post.author.profile_pic.url }}" alt="Sal"></a>
+                                            </span>
+                                            <span class="author-meta">
+                                            <span class="post-name"><a href="author.html">{{ post.previous_post.author.user.username }}</a></span><br/>
+                                            <span class="post-date">{{ post.previous_post.timestamp|timesince }} ago</span><span class="dot"></span><span class="post-read">{{post.previous_post.time_to_read}} min read</span>
+                                            </span>
+                                            <span class="post-read-more"><a href="{{ post.previous_post.get_absolute_url }}" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end post -->
+                        {% endif %}
+                        <!-- begin post -->
+            
+                        {% if post.related_post %}
+                        <div class="col-md-4">
+                            <div class="card">
+                                
+                                <div class="card-block">
+                                    {% for cat in post.related_post.categories.all %}
+                                <a href="{{ cat.get_absolute_url }}">{{ cat }}</a>
+                                {% endfor %}
+                                    <h2 class="card-title"><a href="{{ post.related_post.get_absolute_url }}">{{ post.related_post.title }}</a></h2>
+                                    <div class="metafooter">
+                                        <div class="wrapfooter">
+                                            <span class="meta-footer-thumb">
+                                            <a href="author.html"><img class="author-thumb" src="{{ post.related_post.author.profile_pic.url }}" alt="Sal"></a>
+                                            </span>
+                                            <span class="author-meta">
+                                            <span class="post-name"><a href="author.html">{{ post.related_post.author.user.username }}</a></span><br/>
+                                            <span class="post-date">{{ post.related_post.timestamp|timesince }} ago</span><span class="dot"></span><span class="post-read">{{post.related_post.time_to_read}} min read</span>
+                                            </span>
+                                            <span class="post-read-more"><a href="{{ post.related_post.get_absolute_url }}" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end post -->
+                        {% endif %}
+            
+                        {% if post.next_post %}
+                        <div class="col-md-4">
+                            <div class="card">
+                                
+                                <div class="card-block">
+                                    {% for cat in post.next_post.categories.all %}
+                                <a href="{{ cat.get_absolute_url }}">{{ cat }}</a>
+                                {% endfor %}
+                                    <h2 class="card-title"><a href="{{ post.previous_post.get_absolute_url }}">{{ post.next_post.title }}</a></h2>
+                                    <div class="metafooter">
+                                        <div class="wrapfooter">
+                                            <span class="meta-footer-thumb">
+                                            <a href="author.html"><img class="author-thumb" src="{{ post.next_post.author.profile_pic.url }}" alt="Sal"></a>
+                                            </span>
+                                            <span class="author-meta">
+                                            <span class="post-name"><a href="author.html">{{ post.next_post.author.user.username }}</a></span><br/>
+                                            <span class="post-date">{{ post.next_post.timestamp|timesince }} ago</span><span class="dot"></span><span class="post-read">{{post.next_post.time_to_read}} min read</span>
+                                            </span>
+                                            <span class="post-read-more"><a href="{{ post.next_post.get_absolute_url }}" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end post -->
+                        {% endif %}
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            
+
+		</div>
+		<!-- End Post -->
+
+	</div>
+</div>
+
+
+
+<!-- End Article
+================================================== -->
+
+<div class="hideshare"></div>
+
+<!-- Begin Related
+================================================== -->
+
+
+<!-- End Related Posts
+================================================== -->
+
+<!-- Begin Twitter Timeline
+================================================== -->
+
+<!-- End Twitter Timeline
+================================================== -->
+
+<!-- Begin AlertBar
+================================================== -->
+<div class="alertbar">
+	<div class="container text-center">
+		<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMjIgMnYyMmgtMjB2LTIyaDNjMS4yMyAwIDIuMTgxLTEuMDg0IDMtMmg4Yy44Mi45MTYgMS43NzEgMiAzIDJoM3ptLTExIDFjMCAuNTUyLjQ0OCAxIDEgMSAuNTUzIDAgMS0uNDQ4IDEtMXMtLjQ0Ny0xLTEtMWMtLjU1MiAwLTEgLjQ0OC0xIDF6bTkgMWgtNGwtMiAyaC0zLjg5N2wtMi4xMDMtMmgtNHYxOGgxNnYtMTh6bS0xMyA5LjcyOWwuODU1LS43OTFjMSAuNDg0IDEuNjM1Ljg1MiAyLjc2IDEuNjU0IDIuMTEzLTIuMzk5IDMuNTExLTMuNjE2IDYuMTA2LTUuMjMxbC4yNzkuNjRjLTIuMTQxIDEuODY5LTMuNzA5IDMuOTQ5LTUuOTY3IDcuOTk5LTEuMzkzLTEuNjQtMi4zMjItMi42ODYtNC4wMzMtNC4yNzF6Ii8+PC9zdmc+"> &nbsp; Never miss a <b>story</b> from us, go to our UPSC Section for notes. 
+		<a href="https://careerqube.co.in/cat/4/" class="btn subscribe button">UPSC Preparation</a>
+
+
+
+
+
+
+	</div>
+</div>
+
+
+<!-- End AlertBar
+================================================== -->
+
+{% endblock content %}
